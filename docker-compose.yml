@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  postgresql:
+    image: postgres
+    container_name: fintrack-pgsql
+    ports:
+      - '5432:5432'
+    environment:
+      - 'POSTGRES_ROOT_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_DB=fintrack'
+    volumes:
+      - ./pgdata:/var/lib/postgresql
+
+  fintrack:
+    image: backend
+    container_name: fintrack-backend
+    ports:
+      - '8080:8080'
+    environment:
+      - 'DATABASE_URL=jdbc:postgresql://postgresql:5432/fintrack'
+      - 'DATABASE_USERNAME=postgres'
+      - 'DATABASE_PASSWORD=postgres'
+    depends_on:
+      - postgresql
