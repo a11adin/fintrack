@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+/pgdata/
+/src/main/resources/.$dbscheme.drawio.dtmp
+/src/main/resources/.$dbscheme.drawio.bkp

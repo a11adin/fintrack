@@ -14,7 +14,9 @@ services:
       - ./pgdata:/var/lib/postgresql/data
 
   fintrack:
-    image: backend
+    build:
+      context: ./
+      dockerfile: Dockerfile
     container_name: fintrack-backend
     ports:
       - '8080:8080'
