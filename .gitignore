@@ -34,3 +34,5 @@ build/
 /pgdata/
 /src/main/resources/.$dbscheme.drawio.dtmp
 /src/main/resources/.$dbscheme.drawio.bkp
+/fintrackdata/
+/pgadmin-data/
