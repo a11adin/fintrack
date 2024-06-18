@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -34,4 +35,8 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    private Set<Account> accounts = new LinkedHashSet<>();
+
 }
