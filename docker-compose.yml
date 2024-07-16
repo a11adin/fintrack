@@ -4,7 +4,7 @@ services:
     image: postgres
     container_name: fintrack-pgsql
     ports:
-      - '5432:5432'
+      - '5433:5432'
     environment:
       - 'POSTGRES_ROOT_PASSWORD=postgres'
       - 'POSTGRES_USER=postgres'
