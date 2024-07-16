@@ -37,6 +37,6 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user", orphanRemoval = true)
-    private Set<Account> accounts = new LinkedHashSet<>();
+    private Set<Account> accounts = new HashSet<>();
 
 }
