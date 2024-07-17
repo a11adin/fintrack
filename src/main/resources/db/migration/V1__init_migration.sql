@@ -33,9 +33,3 @@ INSERT INTO roles (name)
 VALUES ('ROLE_MODERATOR');
 INSERT INTO roles (name)
 VALUES ('ROLE_ADMIN');
-
-INSERT INTO users (username, email, password)
-VALUES ('admin', 'admin@renatik.com', '2a$10$M9S/PPQd.05agSB6dGW0WeCPujkvh6F6A1ZnAy.wjbiKX8vYudPfa');
-
-INSERT INTO users_to_roles (role_id, user_id)
-VALUES (3, 1);

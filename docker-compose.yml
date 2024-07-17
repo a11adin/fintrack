@@ -11,7 +11,7 @@ services:
       - 'POSTGRES_PASSWORD=postgres'
       - 'POSTGRES_DB=fintrack'
     volumes:
-      - ./fintrackdata:/var/lib/postgresql/data
+      - fintrackdata:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin4-container
@@ -23,7 +23,7 @@ services:
     ports:
       - '5050:80'
     volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
+      - pgadmin-data:/var/lib/pgadmin
 
   fintrack:
     build:
@@ -36,5 +36,10 @@ services:
       - 'DATABASE_URL=jdbc:postgresql://postgresql:5432/fintrack'
       - 'DATABASE_USERNAME=postgres'
       - 'DATABASE_PASSWORD=postgres'
+      - 'ADMIN_USER=admin'
+      - 'ADMIN_PASSWORD=admin'
     depends_on:
       - postgresql
+volumes:
+  fintrackdata:
+  pgadmin-data:
