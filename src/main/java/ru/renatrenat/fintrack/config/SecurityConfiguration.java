@@ -59,7 +59,7 @@ public class SecurityConfiguration {
             .exceptionHandling(exception -> exception.authenticationEntryPoint(authEntryPointJwt))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authz -> authz
-//                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
                     .requestMatchers("/api/auth/**").permitAll()
                     .requestMatchers("/api/test/**").permitAll()
                     .requestMatchers("/v3/api-docs/**", "/swagger-ui/**","/swagger-ui.html/**").permitAll()

@@ -39,15 +39,19 @@ public class AdminInitializer implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-        Set<Role> roles = new HashSet<>();
-        Optional<Role> userRole = roleRepository.findByName(ERole.ROLE_ADMIN);
-        roles.add(userRole.get());
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setEmail("admin@renatik.com");
-        user.setRoles(roles);
-        userRepository.save(user);
-        System.out.println("Admin created");
+
+        if (!userRepository.existsByUsername(username)){
+            Set<Role> roles = new HashSet<>();
+            Optional<Role> userRole = roleRepository.findByName(ERole.ROLE_ADMIN);
+            roles.add(userRole.get());
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(passwordEncoder.encode(password));
+            user.setEmail("admin@renatik.com");
+            user.setRoles(roles);
+            userRepository.save(user);
+            System.out.println("Admin created");
+        }
+
     }
 }

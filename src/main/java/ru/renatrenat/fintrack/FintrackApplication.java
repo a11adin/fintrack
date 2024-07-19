@@ -9,5 +9,5 @@ public class FintrackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FintrackApplication.class, args);
 	}
-
+//TODO во всех контроллерах добавить логирование нормальное
 }
